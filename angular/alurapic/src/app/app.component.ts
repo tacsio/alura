@@ -1,53 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { PhotoService } from './photos/photo/photo.service';
+import { Photo } from './photos/photo/photo';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'alurapic';
+  photos:Photo[] = []
 
-  photos = [
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/The-Birth-of-Venus-Painting.jpg',
-      by: 'Botticelli'
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/Cafe-Terrace-at-Night-van-gogh-painting.jpg',
-      by: 'Van Gogh'
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/las-meninas-de-diego-vel%C3%A1zquez-painting.jpg',
-      by: 'Diego Valazquez'
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/the-scream-edvard-munch-poster.jpg',
-      by: 'Edvard Munch'
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/Starry-Night-by-Vincent-Van-Gogh-painting.jpg',
-      by: 'Van Gogh'
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/the-creation-of-adam-michelangelo-wallpaper.jpg',
-      by: 'Michelangelo'
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/the-last-supper-mary-magdalene-painting.jpg',
-      by: ''
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/night-watch-rembrandt-wallpaper.jpg',
-      by: 'Rembrandt'
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/school-of-athens-raphael-painting.jpg',
-      by: 'Raphael'
-    },
-    {
-      url: 'http://wisetoast.com/wp-content/uploads/2015/10/mona-lisa-leonardo-da-vinci-most-famous-painting.jpg',
-      by: 'Da Vinci'
-    }
-  ];
+  constructor(private photoService :PhotoService){
+    //const observable = http.get<Object[]>('http://localhost:3000/flavio/photos');
+    //observable.subscribe(photos => this.photos = photos);
+    // http
+    //   .get<Object[]>('http://localhost:3000/flavio/photos')
+    //   .subscribe(
+    //     photos => this.photos = photos,
+    //     err => console.log(err.message)
+    //   );
+
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    
+    this.photoService.listFromUser('flavio')
+      .subscribe(
+        photos => this.photos = photos,
+        err => console.log(err))
+  }
 }
