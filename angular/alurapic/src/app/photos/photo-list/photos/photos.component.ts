@@ -7,7 +7,7 @@ import { Photo } from '../../photo/photo';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnChanges {
-
+  //inboud properties só mudam através de atribuição
   @Input() photos: Photo[] = []
   rows: any[] = []
 
