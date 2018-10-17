@@ -5,7 +5,7 @@
 			type="search"
 			placeholder="search"
 			autofocus
-			(keyup)="updateFilter($event.target.value)"
+			(keyup)="filter = $event.target.value"
 			/>
 			<!-- 
 				event binding usado com ()
@@ -16,4 +16,4 @@
 	</form>
 </div>
 
-<app-photos [photos]='photos'></app-photos>
+<app-photos [photos]='photos | filterByDescription: filter'></app-photos>

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Photo } from '../photo/photo';
 import { PhotoService } from './../photo/photo.service';
+import { filterQueryId } from '@angular/core/src/view/util';
 
 @Component({
 	selector: 'app-photo-list',
@@ -10,9 +11,8 @@ import { PhotoService } from './../photo/photo.service';
 	styleUrls: ['./photo-list.component.css']
 })
 export class PhotoListComponent implements OnInit {
-
-	allPhotos: Photo[] = []
 	photos: Photo[] = []
+	filter: string = ''
 	
 	constructor(private photoService: PhotoService,
 				private activatedRoute: ActivatedRoute) { }
@@ -26,21 +26,8 @@ export class PhotoListComponent implements OnInit {
 
 		this.photoService.listFromUser(username)
 			.subscribe(
-				photos => { 
-					this.allPhotos = photos;
-					this.photos = photos;
-				},
+				photos => this.photos = photos,
 				err => console.log(err)
 			);
 	}
-
-	updateFilter(filterText: string): void {
-		this.photos = (filterText.length > 2) ? this.filterPhotos(filterText) : this.allPhotos;
-	}
-
-	filterPhotos(filterText: string): any {
-		let regex: RegExp = new RegExp(`.*${filterText}.*`, 'i');			
-		return this.allPhotos.filter(photo => regex.test(photo.description));
-	}
-
 }
