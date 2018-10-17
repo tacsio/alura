@@ -19,5 +19,5 @@ springlint-result.html
 docker-compose-local.yml
 proximos-passos-docker-digital.txt
 blockchain-api/node_modules
-
+*.db
 *node_modules/
