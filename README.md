@@ -1,15 +1,7 @@
-```
-     _    _    _   _ ____      _     ____  
-    / \  | |  | | | |  _ \    / \    \ \ \ 
-   / _ \ | |  | | | | |_) |  / _ \    \ \ \
-  / ___ \| |__| |_| |  _ <  / ___ \   / / /
- /_/   \_\_____\___/|_| \_\/_/   \_\ /_/_/ 
-                                           
-```
+![Logo][Logo]
+
 [![Build Status][Status]](https://travis-ci.org/tacsio/spring-playground)
 [![GitHub issues][Issues]](https://github.com/tacsio/spring-playground/issues)
-
-![Logo][Logo]
 
 Projects
 =========
