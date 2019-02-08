@@ -1,7 +1,7 @@
 ![Logo][Logo]
 
-[![Build Status][Status]](https://travis-ci.org/tacsio/spring-playground)
-[![GitHub issues][Issues]](https://github.com/tacsio/spring-playground/issues)
+[![Build Status][Status]](https://travis-ci.org/tacsio/alura)
+[![GitHub issues][Issues]](https://github.com/tacsio/alura/issues)
 
 Projects
 =========
