@@ -14,6 +14,6 @@ Projects
 6. [JS ES6](react/)
 
 
-[Logo]: http://www.agilebrazil.com/2016/wp-content/uploads/2016/09/AluraPreto.png
-[Issues]: https://img.shields.io/github/issues/tacsio/spring-playground.svg
-[Status]: https://travis-ci.org/tacsio/spring-playground.svg?branch=master
+[Logo]: https://i1.wp.com/blog.caelum.com.br/wp-content/uploads/2015/01/logo-alura-preto-400x.png?w=200
+[Issues]: https://img.shields.io/github/issues/tacsio/alura.svg
+[Status]: https://travis-ci.org/tacsio/alura.svg?branch=master
