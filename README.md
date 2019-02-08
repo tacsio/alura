@@ -11,7 +11,7 @@ Projects
 3. [Docker](docker/)
 4. [HTML & CSS 1](html-ccs-1/)
 5. [JS ES6](js-es6/)
-6. [JS ES6](react/)
+6. [React](react/)
 
 
 [Logo]: https://i1.wp.com/blog.caelum.com.br/wp-content/uploads/2015/01/logo-alura-preto-400x.png?w=200
