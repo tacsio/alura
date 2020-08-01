@@ -13,10 +13,10 @@ const Button = styled.a`
   border-radius: 5px;
   text-decoration: none;
   display: inline-block;
-  transition: opacity 0.3s;
+  transition: opacity .3s;
   &:hover,
   &:focus {
-    opacity: 0.5;
+    opacity: .5;
   }
 `;
 

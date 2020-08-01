@@ -4,6 +4,8 @@ import FormField from "../../../components/FormField";
 import PageDefault from "../../../components/PageDefault";
 import Button from "../../../components/Button";
 
+import useForm from "../../../hooks/useForm";
+
 export default function CadastroCategoria() {
   const valoresIniciais = {
     titulo: "",
@@ -12,7 +14,7 @@ export default function CadastroCategoria() {
   };
 
   const [categorias, setCategorias] = useState([]);
-  const [categoria, setCategoria] = useState(valoresIniciais);
+  const [categoria, handleFormData, clearForm] = useForm(valoresIniciais);
 
   useEffect(() => {
     const URL = "http://localhost:8080/categorias";
@@ -28,15 +30,8 @@ export default function CadastroCategoria() {
 
     if (categoria.titulo) {
       setCategorias([...categorias, categoria]);
-      setCategoria(valoresIniciais);
+      clearForm();
     }
-  }
-
-  function handleFormData(key, value) {
-    setCategoria({
-      ...categoria,
-      [key]: value,
-    });
   }
 
   return (
