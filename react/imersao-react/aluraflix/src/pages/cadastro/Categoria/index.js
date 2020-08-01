@@ -1,22 +1,32 @@
-import React, { useState } from "react";
-import PageDefault from "../../../components/PageDefault";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import FormField from "../../../components/FormField";
+import PageDefault from "../../../components/PageDefault";
+import Button from "../../../components/Button";
 
 export default function CadastroCategoria() {
   const valoresIniciais = {
-    nome: "",
+    titulo: "",
     descricao: "",
-    cor: "#000",
+    cor: "#FFFFFF",
   };
 
   const [categorias, setCategorias] = useState([]);
   const [categoria, setCategoria] = useState(valoresIniciais);
 
+  useEffect(() => {
+    const URL = "http://localhost:8080/categorias";
+
+    fetch(URL).then(async (response) => {
+      const json = await response.json();
+      setCategorias([...json]);
+    });
+  }, []);
+
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (categoria.nome) {
+    if (categoria.titulo) {
       setCategorias([...categorias, categoria]);
       setCategoria(valoresIniciais);
     }
@@ -33,36 +43,41 @@ export default function CadastroCategoria() {
     <PageDefault>
       <h1>Cadastro categoria: </h1>
 
-      <form onSubmit={handleSubmit}>
+      <form>
         <FormField
-          label="Nome da Categoria: "
+          id="id_categoria"
+          label="Título da Categoria"
           type="text"
-          value={categoria.nome}
-          onChange={(e) => handleFormData("nome", e.target.value)}
+          value={categoria.titulo}
+          onChange={(e) => handleFormData("titulo", e.target.value)}
         />
 
         <FormField
-          label="Descricao: "
+          id="id_descricao"
+          label="Descricao"
           type="textarea"
           value={categoria.descricao}
           onChange={(e) => handleFormData("descricao", e.target.value)}
         />
 
         <FormField
-          label="Cor: "
+          id="id_cor"
+          label="Cor"
           type="color"
           value={categoria.cor}
           onChange={(e) => handleFormData("cor", e.target.value)}
         />
-        <button>Cadastrar</button>
+        <Button onClick={handleSubmit} type="button">
+          Cadastrar
+        </Button>
       </form>
 
+      {categorias.length === 0 && <div>Loading...</div>}
+
       <ul>
-        {categorias.map((categoria) => (
-          <li key={categoria.nome}>
-            {categoria.nome}
-            {categoria.descricao}
-            {categoria.cor}
+        {categorias.map((it) => (
+          <li style={{ color: it.cor }} key={it.titulo}>
+            {it.titulo}
           </li>
         ))}
       </ul>
